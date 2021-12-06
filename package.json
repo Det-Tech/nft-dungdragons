@@ -17,8 +17,14 @@
   "dependencies": {
     "@chainlink/contracts": "0.1.9",
     "@openzeppelin/contracts": "^3.1.0",
-    "@truffle/hdwallet-provider": "^1.4.1",
-    "dotenv": "^8.2.0"
+    "@stablelib/ed25519": "^1.0.2",
+    "@cypherium/hdwallet-provider": "0.1.1",
+    "@cypherium/web3-provider-engine": "0.10.1",
+    "cypheriumjs-wallet": "1.0.1",
+    "cypheriumjs-tx": "0.1.8",
+    "cypheriumjs-util": "0.1.1",
+    "dotenv": "^8.2.0",
+    "jssha": "^2.3.1"
   },
   "devDependencies": {
     "@chainlink/belt": "^0.0.1",
@@ -27,7 +33,6 @@
     "chai": "^4.2.0",
     "depcheck": "^0.9.1",
     "solhint": "^2.1.0",
-    "truffle": "^5.1.5",
     "truffle-plugin-verify": "^0.5.7"
   }
 }

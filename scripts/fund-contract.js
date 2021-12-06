@@ -8,7 +8,7 @@ const LinkTokenInterface = artifacts.require('LinkTokenInterface')
   can be retrieved by calling the withdrawLink() function.
 */
 
-const payment = process.env.TRUFFLE_CL_BOX_PAYMENT || '3000000000000000000'
+const payment = process.env.TRUFFLE_CL_BOX_PAYMENT || '300000000000000000'
 
 module.exports = async callback => {
   try {

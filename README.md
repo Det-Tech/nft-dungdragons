@@ -23,34 +23,24 @@ And then:
 
 ## Quickstart
 
-Right now this repo only works with rinkeby. Run the following.
+Right now this repo only works with ropsten. Run the following.
 
 ### Setup Environment Variables
-You'll need a `MNEMONIC` and a rinkeby `RINKEBY_RPC_URL` environment variable. Your `MNEMONIC` is your seed phrase of your wallet. You can find an `RINKEBY_RPC_URL` from node provider services like [Infura](https://infura.io/)
-
-Then, you can create a `.env` file with the following.
+You'll need a `MNEMONIC`  environment variable. Your `MNEMONIC` is your seed phrase of your wallet. Then, you can create a `.env` file with the following.
 
 ```bash
-MNEMONIC='cat dog frog....'
-RINKEBY_RPC_URL='www.infura.io/asdfadsfafdadf'
+'cat dog frog....'
 ```
 
-Or, set them in a `bash_profile` file or export them directly into your terminal. You can learn more about [environment variables here](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html). 
-
-To run them directly in your terminal, run: 
-```bash
-export MNEMONIC='cat dog frog....'
-export RINKEBY_RPC_URL='www.infura.io/asdfadsfafdadf'
-```
 
 Then you can get started with:
 
 ### Clone The Repo and migrate
 ```
-git clone https://github.com/PatrickAlphaC/dungeons-and-dragons-nft
+git clone https://github.com/cypherium/dungeons-and-dragons-nft
 cd dungeons-and-dragons-nft
 yarn
-truffle migrate --reset --network rinkeby
+truffle migrate --reset --network ropsten
 ```
 
 This will deploy your D&D NFT!
@@ -58,28 +48,16 @@ This will deploy your D&D NFT!
 ### Generate a character
 You can now try it out:
 ```bash
-truffle exec scripts/fund-contract.js --network rinkeby
-truffle exec scripts/generate-character.js --network rinkeby
-truffle exec scripts/get-character.js --network rinkeby
+truffle migrate --reset --network ropsten
+truffle exec scripts/fund-contract.js --network ropsten
+truffle exec scripts/generate-character.js --network ropsten
+truffle exec scripts/get-character.js --network ropsten
 ```
 
 This will create a new character with random stats! 
 Depending how often you deploy, you can pick which character by changing the [`dnd.getCharacterOverView(1)`](contracts/DungeonsAndDragonsCharacter.sol) command in `get-character.js` to swap the `0` out with whatever `tokenId` of the character you like. 
 
 This will give you the overview of your NFT. You'll see `BN` since the call returns big numbers, you can cast them to ints to see what they are.... Or you could go one step farther
-
-### See it on etherscan or oneclickdapp
-
-You can get an [Etherscan API key](https://etherscan.io/apis) for free and interact with the NFTs on chain. Then set `ETHERSCAN_API_KEY ` as an environment variable.
-
-```bash
-yarn add truffle-plugin-verify
-truffle run verify DungeonsAndDragonsCharacter --network rinkeby --license MIT
-```
-
-This will verify and publish your contract, and you can go to the `Read Contract` section of etherscan that it gives you. 
-
-Otherwise, you can use [oneclickdapp](https://oneclickdapp.com/) and just add the contract address and ABI. You can find the ABI in the `build/contracts` folder. Just remember it's not the whole file that is the ABI, just the section that says `ABI`.
 
 
 # Deploy to Opensea
@@ -119,7 +97,7 @@ This metadata json file is going to be our `tokenURI`, so we will modify our `se
 Then we just run it like:
 
 ```
-truffle exec scripts/set-token-uri.js --network rinkeby
+truffle exec scripts/set-token-uri.js --network ropsten
 ```
 
 Now, we can get the address of our NFT and head on over to the opensea testnet marketplace to see if we did it correctly. If done correctly, it'll look [something like this](https://testnets.opensea.io/assets/dungeonsanddragonscharacter-v9).
